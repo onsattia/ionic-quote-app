@@ -7,13 +7,13 @@
   <ion-list>
     <button
       ion-item
-      *ngFor="let quote of quoteCollection"
-      [navPush]="quotesPage"
+      *ngFor="let quote of quotesList"
+      [navPush]="pushPage"
       [navParams]="quote"
     >
-      <ion-icon [name]="quote.icon" item-left></ion-icon>
-      <h2>{{ quote.category | uppercase }}</h2>
-      <p>{{ quote.quotes.length }} Quotes</p>
+      <ion-icon [name]="quote._source.icon" item-left></ion-icon>
+      <h2>{{ quote._source.category | uppercase }}</h2>
+      <p>{{ quote._source.quotes.length }} Quotes</p>
     </button>
   </ion-list>
 </ion-content>

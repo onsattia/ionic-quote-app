@@ -1,5 +1,11 @@
 {
   "name": "quotes-app",
   "integrations": {},
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/es",
+      "proxyUrl": "http://localhost:9200/es"
+    }
+  ]
 }

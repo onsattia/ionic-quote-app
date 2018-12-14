@@ -1,18 +1,28 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { IonicPage } from "ionic-angular";
-import { Quote } from "../../data/quote.interface";
-import quotes from "../../data/quotes";
+// import { Quote } from "../../data/quote.interface";
+// import quotes from "../../data/quotes";
 import { QuotesPage } from "../quotes/quotes";
+import { Page } from "ionic-angular/umd/navigation/nav-util";
+import { QuotesProvider } from "../../services/quotes";
 
 @IonicPage()
 @Component({
   selector: "page-library",
   templateUrl: "library.html"
 })
-export class LibraryPage implements OnInit {
-  quoteCollection: { category: string; quotes: Quote[]; icon: string }[];
-  quotesPage = QuotesPage;
-  ngOnInit() {
-    this.quoteCollection = quotes;
+export class LibraryPage {
+  // quoteCollection: { category: string; quotes: Quote[]; icon: string }[];
+  quotesList: any;
+  pushPage: Page;
+
+  constructor(private quotes: QuotesProvider) {}
+
+  ionViewWillEnter() {
+    this.quotes.getAllQuotes().subscribe((quotesTable: any) => {
+      this.pushPage = QuotesPage;
+      this.quotesList = quotesTable.hits.hits;
+      console.log(this.quotesList);
+    });
   }
 }

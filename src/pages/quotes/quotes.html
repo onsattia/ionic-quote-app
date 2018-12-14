@@ -1,11 +1,11 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{ quote.category | uppercase }}</ion-title>
+    <ion-title>{{ quote._source.category | uppercase }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let quote of quote.quotes; let i = index">
+  <ion-card *ngFor="let quote of quote._source.quotes; let i = index">
     <ion-card-header> #{{ i + 1 }} </ion-card-header>
     <ion-card-content>
       <p>{{ quote.text }}</p>

@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavParams, AlertController } from "ionic-angular";
 import { Quote } from "@angular/compiler";
-import quotes from "../../data/quotes";
+// import quotes from "../../data/quotes";
 
 @IonicPage()
 @Component({
@@ -9,7 +9,7 @@ import quotes from "../../data/quotes";
   templateUrl: "quotes.html"
 })
 export class QuotesPage {
-  quote: { category: string; quotes: Quote[]; icon: string }[];
+  quote: any;
   constructor(
     private navParams: NavParams,
     private alertCtrl: AlertController
@@ -19,8 +19,8 @@ export class QuotesPage {
 
   onAddToFavorite(selectedQuote: Quote) {
     const confirm = this.alertCtrl.create({
-      title: "Favorite this quote?",
-      message: "Do you want to add this quote as favorite?",
+      title: "Add quote to favorite",
+      message: "Do you want to add this quote to your favorite?",
       buttons: [
         {
           text: "Yes"
