@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavParams, AlertController } from "ionic-angular";
 import { Quote } from "@angular/compiler";
+import { QuotesProvider } from "../../services/quotes";
 // import quotes from "../../data/quotes";
 
 @IonicPage()
@@ -12,7 +13,8 @@ export class QuotesPage {
   quote: any;
   constructor(
     private navParams: NavParams,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private quoteProvider: QuotesProvider
   ) {
     this.quote = this.navParams.data;
   }
@@ -23,7 +25,10 @@ export class QuotesPage {
       message: "Do you want to add this quote to your favorite?",
       buttons: [
         {
-          text: "Yes"
+          text: "Yes",
+          handler: () => {
+            this.quoteProvider.addQuoteToFavorites(selectedQuote);
+          }
         },
         {
           text: "No"
