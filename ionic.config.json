@@ -6,6 +6,10 @@
     {
       "path": "/es",
       "proxyUrl": "http://localhost:9200/es"
+    },
+    {
+      "path": "/favorites",
+      "proxyUrl": "http://localhost:9200/favorites"
     }
   ]
 }

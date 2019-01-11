@@ -11,12 +11,27 @@ import { LibraryPage } from "../pages/library/library";
 import { TabsPage } from "../pages/tabs/tabs";
 import { QuotesPage } from "../pages/quotes/quotes";
 import { QuotesProvider } from "../services/quotes";
+import { QuotePage } from "../pages/quote/quote";
 
 @NgModule({
-  declarations: [MyApp, FavoritesPage, LibraryPage, TabsPage, QuotesPage],
+  declarations: [
+    MyApp,
+    FavoritesPage,
+    LibraryPage,
+    TabsPage,
+    QuotesPage,
+    QuotePage
+  ],
   imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, FavoritesPage, LibraryPage, TabsPage, QuotesPage],
+  entryComponents: [
+    MyApp,
+    FavoritesPage,
+    LibraryPage,
+    TabsPage,
+    QuotesPage,
+    QuotePage
+  ],
   providers: [
     StatusBar,
     SplashScreen,

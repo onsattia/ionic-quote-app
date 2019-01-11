@@ -4,7 +4,6 @@ import { Quote } from "../data/quote.interface";
 
 @Injectable()
 export class QuotesProvider {
-  private favoriteQuotes: Quote[] = [];
   header: HttpHeaders;
   constructor(public http: HttpClient) {
     this.header = new HttpHeaders();
@@ -22,18 +21,22 @@ export class QuotesProvider {
   }
 
   addQuoteToFavorites(quote: Quote) {
-    this.favoriteQuotes.push(quote);
-    console.log(this.favoriteQuotes);
+    let url = "/favorites/favorite/";
+    return this.http.post(
+      url,
+      { id: quote.id, text: quote.text, author: quote.author },
+      { headers: this.header }
+    );
   }
 
-  addQuoteRemoveFromFavorites(quote: Quote) {
-    const position = this.favoriteQuotes.findIndex((quoteEl: Quote) => {
-      return quoteEl.id == quote.id;
-    });
-    this.favoriteQuotes.splice(position, 1);
+  removeQuoteFromFavorites(favoriteId: any) {
+    let url = "/favorites/favorite/" + favoriteId;
+    return this.http.delete(url, { headers: this.header });
   }
 
   getFavoriteQuotes() {
-    return this.favoriteQuotes.slice();
+    return this.http.get("favorites/_search", {
+      headers: this.header
+    });
   }
 }

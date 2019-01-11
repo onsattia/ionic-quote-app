@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavParams, AlertController } from "ionic-angular";
-import { Quote } from "@angular/compiler";
 import { QuotesProvider } from "../../services/quotes";
+import { Quote } from "../../data/quote.interface";
 // import quotes from "../../data/quotes";
 
 @IonicPage()
@@ -14,7 +14,7 @@ export class QuotesPage {
   constructor(
     private navParams: NavParams,
     private alertCtrl: AlertController,
-    private quoteProvider: QuotesProvider
+    private quotesProvider: QuotesProvider
   ) {
     this.quote = this.navParams.data;
   }
@@ -27,7 +27,9 @@ export class QuotesPage {
         {
           text: "Yes",
           handler: () => {
-            this.quoteProvider.addQuoteToFavorites(selectedQuote);
+            this.quotesProvider
+              .addQuoteToFavorites(selectedQuote)
+              .subscribe((result: any) => {});
           }
         },
         {

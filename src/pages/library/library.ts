@@ -16,13 +16,12 @@ export class LibraryPage {
   quotesList: any;
   pushPage: Page;
 
-  constructor(private quotes: QuotesProvider) {}
+  constructor(private quotesProvider: QuotesProvider) {}
 
   ionViewWillEnter() {
-    this.quotes.getAllQuotes().subscribe((quotesTable: any) => {
+    this.quotesProvider.getAllQuotes().subscribe((quotesTable: any) => {
       this.pushPage = QuotesPage;
       this.quotesList = quotesTable.hits.hits;
-      console.log(this.quotesList);
     });
   }
 }
