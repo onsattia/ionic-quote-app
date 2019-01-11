@@ -27,7 +27,7 @@ export class QuotePage {
 
   onUnfavorite() {
     this.quotesProvider
-      .removeQuoteFromFavorites(this.navParams.data._id)
+      .removeQuoteFromFavorite(this.navParams.data._id)
       .subscribe((result: any) => {});
     this.viewCtrl.dismiss();
   }

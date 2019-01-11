@@ -10,7 +10,6 @@ import { Quote } from "../../data/quote.interface";
 })
 export class QuotesPage {
   quote: any;
-
   constructor(
     private navParams: NavParams,
     private alertCtrl: AlertController,
@@ -21,7 +20,7 @@ export class QuotesPage {
 
   onAddToFavorite(selectedQuote: Quote) {
     const confirm = this.alertCtrl.create({
-      title: "Add quote to favorite",
+      title: "Add to favorite",
       message: "Do you want to add this quote to your favorite?",
       buttons: [
         {

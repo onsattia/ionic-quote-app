@@ -29,7 +29,7 @@ export class QuotesProvider {
     );
   }
 
-  removeQuoteFromFavorites(favoriteId: any) {
+  removeQuoteFromFavorite(favoriteId: any) {
     let url = "/favorites/favorite/" + favoriteId;
     console.log("URL", url);
     return this.http.delete(url, { headers: this.header });

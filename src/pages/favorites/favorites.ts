@@ -22,10 +22,6 @@ export class FavoritesPage {
     });
   }
 
-  // ionViewWillEnter() {
-  //   this.quotes = this.quotesService.getFavoriteQuotes();
-  // }
-
   onViewQuote(quote: Quote) {
     const modal = this.modalCtrl.create(QuotePage, quote);
     modal.present();
@@ -38,9 +34,9 @@ export class FavoritesPage {
     });
   }
 
-  onRemoveFromFavorites(quoteId: any) {
+  onRemoveFromFavorite(quoteId: any) {
     this.quotesProvider
-      .removeQuoteFromFavorites(quoteId)
+      .removeQuoteFromFavorite(quoteId)
       .subscribe((result: any) => {});
   }
 }
