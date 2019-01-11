@@ -29,5 +29,18 @@ export class FavoritesPage {
   onViewQuote(quote: Quote) {
     const modal = this.modalCtrl.create(QuotePage, quote);
     modal.present();
+    modal.onWillDismiss(() => {
+      this.quotesProvider
+        .getFavoriteQuotes()
+        .subscribe((FavoritesTable: any) => {
+          this.favoritesList = FavoritesTable.hits.hits;
+        });
+    });
+  }
+
+  onRemoveFromFavorites(quoteId: any) {
+    this.quotesProvider
+      .removeQuoteFromFavorites(quoteId)
+      .subscribe((result: any) => {});
   }
 }

@@ -15,10 +15,10 @@ export class QuotesProvider {
     return this.http.get("/es/quote/_search", { headers: this.header });
   }
 
-  getQuote(id) {
-    let url = "/es/quote/" + id;
-    return this.http.get(url, { headers: this.header });
-  }
+  // getQuote(id: any) {
+  //   let url = "/es/quote/" + id;
+  //   return this.http.get(url, { headers: this.header });
+  // }
 
   addQuoteToFavorites(quote: Quote) {
     let url = "/favorites/favorite/";
@@ -31,6 +31,7 @@ export class QuotesProvider {
 
   removeQuoteFromFavorites(favoriteId: any) {
     let url = "/favorites/favorite/" + favoriteId;
+    console.log("URL", url);
     return this.http.delete(url, { headers: this.header });
   }
 

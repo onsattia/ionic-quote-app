@@ -2,7 +2,6 @@ import { Component } from "@angular/core";
 import { IonicPage, NavParams, AlertController } from "ionic-angular";
 import { QuotesProvider } from "../../services/quotes";
 import { Quote } from "../../data/quote.interface";
-// import quotes from "../../data/quotes";
 
 @IonicPage()
 @Component({
@@ -11,6 +10,7 @@ import { Quote } from "../../data/quote.interface";
 })
 export class QuotesPage {
   quote: any;
+
   constructor(
     private navParams: NavParams,
     private alertCtrl: AlertController,

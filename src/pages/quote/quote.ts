@@ -26,10 +26,9 @@ export class QuotePage {
   }
 
   onUnfavorite() {
-    console.log(this.navParams.data._id);
-
     this.quotesProvider
       .removeQuoteFromFavorites(this.navParams.data._id)
       .subscribe((result: any) => {});
+    this.viewCtrl.dismiss();
   }
 }
